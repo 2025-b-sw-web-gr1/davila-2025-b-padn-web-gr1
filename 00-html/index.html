@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Guía práctica de HTML — 00-html</title>
+	<style>
+		:root{
+			--bg:#0f1724; --card:#0b1220; --accent:#6EE7B7; --muted:#97A0B5; --glass: rgba(255,255,255,0.03);
+			--radius:12px; font-family: Inter,Segoe UI,Helvetica,Arial,sans-serif;
+		}
+		html,body{height:100%; margin:0; background:linear-gradient(180deg,#071029 0%, #0f1724 100%); color:#E6F0FF;}
+		.container{max-width:1100px; margin:28px auto; padding:28px; background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border-radius:16px; box-shadow:0 8px 30px rgba(2,6,23,0.8);}
+		header{display:flex; gap:16px; align-items:center; margin-bottom:20px;}
+		.logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60A5FA);display:flex;align-items:center;justify-content:center;font-weight:700;color:#042028;}
+		h1{margin:0;font-size:1.4rem}
+		p.lead{margin:6px 0 0;color:var(--muted);font-size:0.95rem}
+		nav{display:flex;flex-wrap:wrap; gap:8px;margin:18px 0;}
+		nav a{color:var(--accent); background:var(--glass); padding:8px 12px; border-radius:10px; text-decoration:none; font-size:0.9rem}
+		.section{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent); border-radius:12px; padding:16px; margin-bottom:14px; box-shadow:inset 0 1px 0 rgba(255,255,255,0.02);}
+		.section h2{margin:0 0 8px 0; font-size:1.05rem; color:#DFFAF0}
+		.row{display:flex; gap:16px; flex-wrap:wrap;}
+		.col{flex:1 1 420px; min-width:280px}
+		pre.code{background:#071226; color:#E6F0FF; padding:12px; border-radius:10px; overflow:auto; font-size:0.9rem;}
+		button.run{background:var(--accent); border:none; color:#042028; padding:8px 10px; border-radius:8px; cursor:pointer;}
+		.preview{background:#000814; border-radius:8px; padding:12px; min-height:80px; color:#fff; overflow:auto;}
+		.small{font-size:0.9rem;color:var(--muted)}
+		.footer{font-size:0.85rem;color:var(--muted); text-align:center; margin-top:18px;}
+		.example-actions{display:flex; gap:8px; margin-top:8px;}
+		@media (max-width:700px){ .row{flex-direction:column} }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div class="logo">HTML</div>
+			<div>
+				<h1>Guía práctica de HTML</h1>
+				<p class="lead">Explicaciones y ejemplos interactivos sobre las principales características de HTML.</p>
+			</div>
+		</header>
+
+		<nav>
+			<a href="#intro">Introducción</a>
+			<a href="#estructura">Estructura</a>
+			<a href="#texto">Texto</a>
+			<a href="#enlaces">Enlaces</a>
+			<a href="#imagenes">Imágenes</a>
+			<a href="#listas">Listas</a>
+			<a href="#tablas">Tablas</a>
+			<a href="#formularios">Formularios</a>
+			<a href="#multimedia">Multimedia</a>
+			<a href="#semantica">Semántica</a>
+			<a href="#canvas">Canvas/SVG</a>
+			<a href="#apis">APIs</a>
+			<a href="#accesibilidad">Accesibilidad</a>
+		</nav>
+
+		<section id="intro" class="section">
+			<h2>Introducción</h2>
+			<p class="small">HTML (HyperText Markup Language) es el lenguaje de marcado que estructura el contenido en la web. Aquí verás cómo crear páginas, usar etiquetas, atributos y combinar HTML con CSS y JavaScript.</p>
+		</section>
+
+		<section id="estructura" class="section">
+			<h2>Estructura básica de un documento</h2>
+			<div class="row">
+				<div class="col">
+					<p class="small">Un documento mínimo tiene la declaración doctype, html, head y body. Dentro de head van meta, title y enlaces a estilos.</p>
+					<pre class="code" id="code-structure">&lt;!doctype html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Mi página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hola&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+					<div class="example-actions">
+						<button class="run" data-target="structure">Ver ejemplo</button>
+					</div>
+				</div>
+				<div class="col">
+					<p class="small">Resultado:</p>
+					<div class="preview" id="preview-structure"></div>
+				</div>
+			</div>
+		</section>
+
+		<section id="texto" class="section">
+			<h2>Texto y formato</h2>
+			<p class="small">Etiquetas para encabezados, párrafos, énfasis, citas y comentarios.</p>
+			<pre class="code" id="code-text">&lt;h1&gt;Título principal&lt;/h1&gt;
+&lt;p&gt;Un párrafo con &lt;strong&gt;texto fuerte&lt;/strong&gt; y &lt;em&gt;énfasis&lt;/em&gt;.&lt;/p&gt;
+&lt;!-- Comentario en HTML --&gt;</pre>
+			<div class="example-actions">
+				<button class="run" data-target="text">Ejecutar</button>
+			</div>
+			<div class="preview" id="preview-text"></div>
+		</section>
+
+		<section id="enlaces" class="section">
+			<h2>Enlaces (a)</h2>
+			<p class="small">Enlaces a otras páginas, anclas y uso de target para abrir en nueva pestaña.</p>
+			<pre class="code" id="code-links">&lt;a href="https://example.com" target="_blank" rel="noopener"&gt;Ir a example&lt;/a&gt;
+&lt;a href="#seccion"&gt;Ir a sección interna&lt;/a&gt;</pre>
+			<div class="example-actions">
+				<button class="run" data-target="links">Probar</button>
+			</div>
+			<div class="preview" id="preview-links"></div>
+		</section>
+
+		<section id="imagenes" class="section">
+			<h2>Imágenes</h2>
+			<p class="small">Usa alt para accesibilidad y controla tamaño con atributos o CSS.</p>
+			<pre class="code" id="code-images">&lt;img src="https://via.placeholder.com/180" alt="Ejemplo" width="180"&gt;</pre>
+			<div class="example-actions">
+				<button class="run" data-target="images">Mostrar</button>
+			</div>
+			<div class="preview" id="preview-images"></div>
+		</section>
+
+		<section id="listas" class="section">
+			<h2>Listas</h2>
+			<p class="small">Listas ordenadas, desordenadas y de definición.</p>
+			<pre class="code" id="code-lists">&lt;ul&gt;
+  &lt;li&gt;Elemento A&lt;/li&gt;
+  &lt;li&gt;Elemento B&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Paso 1&lt;/li&gt;
+&lt;/ol&gt;</pre>
+			<div class="example-actions">
+				<button class="run" data-target="lists">Ver</button>
+			</div>
+			<div class="preview" id="preview-lists"></div>
+		</section>
+
+		<section id="tablas" class="section">
+			<h2>Tablas</h2>
+			<p class="small">Tablas para datos tabulares: thead, tbody, tr, th, td.</p>
+			<pre class="code" id="code-tables">&lt;table border="1"&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Nombre&lt;/th&gt;&lt;th&gt;Edad&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Ana&lt;/td&gt;&lt;td&gt;23&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;/table&gt;</pre>
+			<div class="example-actions">
+				<button class="run" data-target="tables">Mostrar</button>
+			</div>
+			<div class="preview" id="preview-tables"></div>
+		</section>
+
+		<section id="formularios" class="section">
+			<h2>Formularios e inputs</h2>
+			<p class="small">Elementos básicos: form, input, textarea, select, labels y validación nativa.</p>
+			<pre class="code" id="code-forms">&lt;form onsubmit="event.preventDefault(); alert('Enviado');"&gt;
+  &lt;label&gt;Nombre: &lt;input name="name" required /&gt;&lt;/label&gt;
+  &lt;label&gt;Color: &lt;input type="color" /&gt;&lt;/label&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</pre>
+			<div class="example-actions">
+				<button class="run" data-target="forms">Probar formulario</button>
+			</div>
+			<div class="preview" id="preview-forms"></div>
+		</section>
+
+		<section id="multimedia" class="section">
+			<h2>Multimedia: audio y video</h2>
+			<p class="small">Etiquetas audio y video con controles, subtítulos y formatos compatibles.</p>
+			<pre class="code" id="code-media">&lt;audio controls&gt;
+  &lt;source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg"&gt;
+  Tu navegador no soporta audio.
+&lt;/audio&gt;
+
+&lt;video width="320" controls&gt;
+  &lt;source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"&gt;
+  Video no disponible.
+&lt;/video&gt;</pre>
+			<div class="example-actions">
+				<button class="run" data-target="media">Reproducir</button>
+			</div>
+			<div class="preview" id="preview-media"></div>
+		</section>
+
+		<section id="semantica" class="section">
+			<h2>Etiquetas semánticas</h2>
+			<p class="small">Usa header, nav, main, article, section, aside y footer para mejorar significado y accesibilidad.</p>
+			<pre class="code" id="code-sematic">&lt;header&gt;&lt;h1&gt;Mi sitio&lt;/h1&gt;&lt;/header&gt;
+&lt;main&gt;&lt;article&gt;&lt;h2&gt;Noticia&lt;/h2&gt;&lt;/article&gt;&lt;/main&gt;
+&lt;footer&gt;Pie de página&lt;/footer&gt;</pre>
+			<div class="example-actions">
+				<button class="run" data-target="sematic">Ver</button>
+			</div>
+			<div class="preview" id="preview-sematic"></div>
+		</section>
+
+		<section id="canvas" class="section">
+			<h2>Canvas y SVG</h2>
+			<p class="small">Canvas para dibujo dinámico y SVG para gráficos vectoriales. Aquí un ejemplo sencillo de canvas.</p>
+			<pre class="code" id="code-canvas">&lt;canvas id="mycanvas" width="280" height="120" style="border:1px solid #333"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+  const c = document.getElementById('mycanvas').getContext('2d');
+  c.fillStyle = '#6EE7B7'; c.fillRect(10,10,100,60);
+  c.fillStyle = '#60A5FA'; c.font='16px sans-serif'; c.fillText('Canvas',20,45);
+&lt;/script&gt;</pre>
+			<div class="example-actions">
+				<button class="run" data-target="canvas">Dibujar</button>
+			</div>
+			<div class="preview" id="preview-canvas"></div>
+		</section>
+
+		<section id="apis" class="section">
+			<h2>APIs del navegador (ejemplos)</h2>
+			<p class="small">Pequeños ejemplos de LocalStorage y Geolocation.</p>
+			<pre class="code" id="code-apis">// LocalStorage
+localStorage.setItem('ejemplo','hola');
+// Geolocation (si el navegador lo permite)
+navigator.geolocation && navigator.geolocation.getCurrentPosition(pos => console.log(pos.coords));</pre>
+			<div class="example-actions">
+				<button class="run" data-target="apis">Ejecutar (consola)</button>
+			</div>
+			<div class="preview" id="preview-apis"></div>
+		</section>
+
+		<section id="accesibilidad" class="section">
+			<h2>Accesibilidad y buenas prácticas</h2>
+			<ul class="small">
+				<li>Usa atributos alt en imágenes y labels en formularios.</li>
+				<li>Usa roles ARIA solo cuando sea necesario.</li>
+				<li>Comprueba el contraste de colores y navegación con teclado.</li>
+			</ul>
+		</section>
+
+		<div class="footer">
+			<p>Lectura basada en temas generales sobre HTML. Practica modificando los ejemplos para aprender.</p>
+		</div>
+	</div>
+
+	<script>
+		// Manejador de "run" para insertar ejemplos en los preview correspondientes
+		document.querySelectorAll('button.run').forEach(btn=>{
+			btn.addEventListener('click', ()=>{
+				const target = btn.dataset.target;
+				const codeEl = document.getElementById('code-' + target);
+				const preview = document.getElementById('preview-' + target);
+				if(!codeEl || !preview) return;
+				const code = codeEl.textContent;
+				// Al insertar html con scripts, creamos un iframe para mayor seguridad y aislamiento
+				const iframe = document.createElement('iframe');
+				iframe.style.width = '100%';
+				iframe.style.height = '180px';
+				iframe.style.border = '0';
+				preview.innerHTML = '';
+				preview.appendChild(iframe);
+				const doc = iframe.contentDocument || iframe.contentWindow.document;
+				doc.open();
+				// Añadimos un estilo básico al iframe para legibilidad
+				const html = `
+					<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+					<style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;padding:8px;color:#111;background:#fff}</style>
+					</head><body>${escapeHtml(code)}</body></html>
+				`;
+				// Si el código incluye <script> tags, no los escapamos. Detectamos caso de canvas ejemplo que incluye script.
+				if(/<script[\s\S]*?>[\s\S]*?<\/script>/i.test(code)){
+					// Inyectar el código tal cual (aceptando riesgo controlado por usuario)
+					doc.write('<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body>' + code + '</body></html>');
+				} else {
+					doc.write(html);
+				}
+				doc.close();
+			});
+		});
+
+		// helper: escapa etiquetas para mostrar en iframe cuando no hay script
+		function escapeHtml(str){
+			return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+		}
+	</script>
+</body>
+</html>
