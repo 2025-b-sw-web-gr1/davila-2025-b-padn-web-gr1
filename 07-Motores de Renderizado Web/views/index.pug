@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h2= title
+  p.lead Autor: #{author}
+  ul
+    each item in items
+      li= item
+  section#about
+    h3 Sobre este ejercicio
+    p Este ejemplo demuestra cómo usar Pug con Express. Compara la sintaxis indentada con la sintaxis HTML de EJS.
+    p
+      a(href="README.md") Leer explicación y pasos para la presentación.

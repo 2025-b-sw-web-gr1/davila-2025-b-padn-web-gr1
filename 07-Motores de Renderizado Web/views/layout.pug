@@ -1,0 +1,19 @@
+doctype html
+html(lang="es")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width,initial-scale=1")
+    title= title
+    link(rel="stylesheet" href="/public/styles.css")
+  body
+    header.site-header
+      .container
+        h1.site-title Pug Demo
+        nav
+          a(href="/") Home
+          a(href="#about") About
+    main.container
+      block content
+    footer.site-footer
+      .container
+        small Powered by Pug — Motor de renderizado ejemplo
