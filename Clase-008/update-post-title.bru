@@ -1,0 +1,13 @@
+meta {
+  name: Actualizar título de post (PATCH)
+  type: http
+  seq: 5
+}
+
+patch {
+  url: https://jsonplaceholder.typicode.com/posts/1
+  body: {
+    "title": "updated title"
+  }
+  auth: none
+}

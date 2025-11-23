@@ -1,0 +1,15 @@
+meta {
+  name: Crear nueva tarea
+  type: http
+  seq: 17
+}
+
+post {
+  url: https://jsonplaceholder.typicode.com/todos
+  body: {
+    "title": "Buy milk",
+    "completed": false,
+    "userId": 1
+  }
+  auth: none
+}

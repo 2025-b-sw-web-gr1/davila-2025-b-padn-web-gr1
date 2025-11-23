@@ -1,0 +1,14 @@
+meta {
+  name: Crear nuevo álbum
+  type: http
+  seq: 12
+}
+
+post {
+  url: https://jsonplaceholder.typicode.com/albums
+  body: {
+    "title": "Vacation",
+    "userId": 1
+  }
+  auth: none
+}
