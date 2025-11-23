@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Parte 3 — Estructura Semántica HTML5 (Ejemplo)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Skip link para accesibilidad -->
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="site-header" role="banner">
+    <div class="inner">
+      <h1 class="site-title">Mi Sitio Semántico</h1>
+      <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#news">Noticias</a></li>
+          <li><a href="#topics">Temas</a></li>
+          <li><a href="#about">Acerca</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main" role="main" aria-labelledby="main-title">
+    <div class="container">
+      <article class="hero-article" aria-labelledby="main-title">
+        <header>
+          <h2 id="main-title">Construyendo con HTML5 semántico</h2>
+          <p class="meta">Publicado el <time datetime="2025-11-23">23 de noviembre de 2025</time> por <a href="#author">Equipo</a></p>
+        </header>
+
+        <section aria-labelledby="section-intro">
+          <h3 id="section-intro">Introducción</h3>
+          <p>Este ejemplo muestra el uso de elementos semánticos de HTML5 para estructurar contenido de forma clara y accesible.</p>
+        </section>
+
+        <section aria-labelledby="section-features">
+          <h3 id="section-features">Características principales</h3>
+          <ul>
+            <li>Uso de &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;article&gt;, &lt;section&gt;, &lt;aside&gt;, &lt;footer&gt;.</li>
+            <li>Uso de &lt;figure&gt; y &lt;figcaption&gt; para contenido multimedia.</li>
+            <li>Enlaces skip y roles/atributos ARIA mínimos para mejorar la navegación por teclado/lectores de pantalla.</li>
+          </ul>
+        </section>
+
+        <figure>
+          <img src="https://placehold.co/800x360?text=Hero+Image" alt="Imagen ilustrativa" />
+          <figcaption>Figura: ejemplo ilustrativo para el hero.</figcaption>
+        </figure>
+
+        <footer class="article-footer">
+          <p>Etiquetas relacionadas: <a href="#semantic">HTML5</a>, <a href="#accessibility">Accesibilidad</a></p>
+        </footer>
+      </article>
+
+      <div class="layout-grid">
+        <section class="news" aria-labelledby="news-title">
+          <h3 id="news-title">Últimas noticias</h3>
+
+          <article class="news-item">
+            <header><h4><a href="#n1">Nueva especificación publicada</a></h4></header>
+            <p>Resumen breve de la noticia. <a href="#more1">Leer más</a></p>
+            <footer class="item-meta"><small>por <a href="#author">Admin</a></small></footer>
+          </article>
+
+          <article class="news-item">
+            <header><h4><a href="#n2">Buenas prácticas de estructura</a></h4></header>
+            <p>Resumen sobre buenas prácticas en marcado semántico.</p>
+            <footer class="item-meta"><small>por <a href="#author">Equipo</a></small></footer>
+          </article>
+        </section>
+
+        <aside class="sidebar" role="complementary" aria-labelledby="sidebar-title">
+          <h3 id="sidebar-title">Enlaces útiles</h3>
+          <ul>
+            <li><a href="https://www.w3.org/TR/html52/" target="_blank" rel="noopener">HTML Living Standard</a></li>
+            <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener">WCAG (accesibilidad)</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+        </aside>
+      </div>
+
+      <section id="about" class="about" aria-labelledby="about-title">
+        <h3 id="about-title">Acerca de este ejercicio</h3>
+        <p>La actividad consistió en elegir un estándar (HTML5 semántico) y aplicarlo para mejorar la estructura y accesibilidad del contenido.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="inner">
+      <address>
+        <strong id="author">Equipo de Clase</strong><br>
+        Curso — SWGR1Web<br>
+        <a href="mailto:paul.davila01@epn.edu.ec">paul.davila01@epn.edu.ec</a>
+      </address>
+      <nav class="footer-nav" aria-label="Enlaces de pie de página">
+        <a href="#privacy">Privacidad</a> · <a href="#terms">Términos</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
